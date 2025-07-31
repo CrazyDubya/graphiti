@@ -179,7 +179,7 @@ class PersonalAssistantDemo:
             config = NODE_HYBRID_SEARCH_RRF.model_copy(deep=True)
             config.limit = 3
             
-            results = await self.graphiti._search(query=query, config=config)
+            results = await self.graphiti.search(query=query, config=config)
             
             if results.nodes:
                 for i, node in enumerate(results.nodes, 1):
