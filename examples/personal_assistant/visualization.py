@@ -76,8 +76,8 @@ class GraphVisualizer:
             config.limit = 20
             
             try:
-                results = await self.graphiti._search(query=search_term, config=config)
-                count = len(results.nodes) if results.nodes else 0
+                results = await self.graphiti.search(query=search_term, config=config)
+                count = len(results.nodes) if hasattr(results, 'nodes') and results.nodes else 0
                 entities[entity_type] = count
             except Exception:
                 entities[entity_type] = 0
