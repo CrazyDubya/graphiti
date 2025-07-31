@@ -151,7 +151,12 @@ class PersonalAssistantDemo:
             print("-" * 50)
             
             # Use a subset of queries for each demo
-            demo_queries = queries[:3] if search_name == "Basic Hybrid Search" else queries[3:6] if search_name == "Node-Focused Search" else queries[6:9]
+            query_mapping = {
+                "Basic Hybrid Search": queries[:3],
+                "Node-Focused Search": queries[3:6],
+                "Graph-Aware Search": queries[6:9],
+            }
+            demo_queries = query_mapping.get(search_name, [])
             
             for query in demo_queries:
                 print(f"\nQuery: '{query}'")
