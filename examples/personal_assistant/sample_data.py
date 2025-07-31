@@ -20,7 +20,7 @@ def model_to_json(model_instance) -> str:
             return obj.isoformat()
         raise TypeError(f"Object of type {type(obj)} is not JSON serializable")
     
-    return json.dumps(model_instance.dict(), default=default)
+    return json.dumps(model_instance.model_dump(), default=default)
 
 
 def create_sample_episodes() -> List[Dict[str, Any]]:
